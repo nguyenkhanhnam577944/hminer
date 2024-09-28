@@ -16,17 +16,8 @@ Autostart = True #@param {type: "boolean"}
 class CRDSetup:
     def __init__(self, user):
         os.system("apt update")
-        self.installCRD()
         self.installDesktopEnvironment()
-        self.installGoogleChrome()
         self.finish(user)
-
-    @staticmethod
-    def installCRD():
-        subprocess.run(['wget', 'https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb'])
-        subprocess.run(['dpkg', '--install', 'chrome-remote-desktop_current_amd64.deb'])
-        subprocess.run(['apt', 'install', '--assume-yes', '--fix-broken'])
-        print("Chrome Remoted Desktop Installed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
     @staticmethod
     def installDesktopEnvironment():
@@ -37,13 +28,7 @@ class CRDSetup:
         os.system("systemctl disable lightdm.service")
         print("Installed XFCE4 Desktop Environment !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
-    @staticmethod
-    def installGoogleChrome():
-        subprocess.run(["wget", "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"])
-        subprocess.run(["dpkg", "--install", "google-chrome-stable_current_amd64.deb"])
-        subprocess.run(['apt', 'install', '--assume-yes', '--fix-broken'])
-        print("Google Chrome Installed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
+    
     @staticmethod
     def finish(user):
         if Autostart:
