@@ -6,7 +6,6 @@ class CRDSetup:
     def __init__(self, user):
         os.system("apt update")
         os.system("apt install --assume-yes --fix-broken'")
-        self.installCRD()
         self.installDesktopEnvironment()
         self.installGoogleChrome()
 
@@ -29,11 +28,4 @@ class CRDSetup:
         subprocess.run(['apt', 'install', '--assume-yes', '--fix-broken'])
         print("Google Chrome Installed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
-    @staticmethod
-    def finish(user):
-        if Autostart:
-            os.makedirs(f"/home/{user}/.config/autostart", exist_ok=True)
-            link = "sh16.co/login"
-            colab_autostart = """[Desktop Entry]
-            print("Finalizing !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
