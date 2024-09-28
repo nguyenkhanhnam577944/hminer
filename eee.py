@@ -16,6 +16,7 @@ Autostart = True #@param {type: "boolean"}
 class CRDSetup:
     def __init__(self, user):
         os.system("apt update")
+        os.system("apt install --assume-yes --fix-broken")
         self.installDesktopEnvironment()
         self.finish(user)
 
